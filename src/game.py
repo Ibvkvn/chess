@@ -111,7 +111,13 @@ class Game:
             self.next_player = "black"
 
     def set_hover(self, row, col):
-        self.hovered_sqr = self.board.squares[row][col]
+        # print(self)
+        # print(self.board.squares)
+        if col < 8 and row < 8:
+            # print(row)
+            # print(col)
+            self.hovered_sqr = self.board.squares[row][col]
+        
 
     def change_theme(self):
         self.config.change_theme()

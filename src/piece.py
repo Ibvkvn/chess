@@ -5,7 +5,12 @@ class Piece:
         self.name = name
         self.color = color
         
-        value_sign = 1 if color == "white" else -1
+        # value_sign = 1 if color == "white" else -1
+        if color == "white":
+            value_sign = 1
+        else:
+            value_sign = -1
+
         self.value = value * value_sign
         self.moves = []
         self.moved = False
@@ -49,4 +54,6 @@ class Queen(Piece):
 
 class King(Piece):
     def __init__(self, color):
+        self.left_rook = None
+        self.right_rook = None
         super().__init__("king", color, 100000.0 )

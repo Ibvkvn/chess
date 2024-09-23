@@ -49,7 +49,7 @@ class Main:
                     if board.squares[clicked_row][clicked_col].has_piece():
                         piece = board.squares[clicked_row][clicked_col].piece
                         if piece.color == game.next_player:
-                            board.calc_moves(piece, clicked_row, clicked_col)
+                            board.calc_moves(piece, clicked_row, clicked_col, bool=True)
                             dragger.save_initial(event.pos)
                             dragger.drag_piece(piece)
                             game.show_bg(screen)
@@ -61,6 +61,7 @@ class Main:
                     motion_row = event.pos[1] // SQSIZE 
                     motion_col = event.pos[0] // SQSIZE
 
+                    #print(motion_row, motion_col)
                     game.set_hover(motion_row, motion_col)
 
                     if dragger.dragging:
